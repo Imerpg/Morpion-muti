@@ -1,2 +1,4 @@
 # Morpion muti
  
+## Algo 
+
