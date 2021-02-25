@@ -14,7 +14,7 @@ public:
     char m_pion;
 
     // A gagné
-    bool win;
+    bool win = false;
 
     // J1 ou J2
     bool first;

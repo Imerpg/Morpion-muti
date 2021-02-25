@@ -46,11 +46,17 @@ void game::unVun()
 
     randomPlayer(j1, j2);
 
-    TabP.setOnPlateau(j1);
+    while(j1.win == false && j2.win == false)
+    {
+        TabP.setOnPlateau(j1);
+        TabP.setOnPlateau(j2);
 
-    j1.stats();
+        j1.stats();
 
-    j2.stats();
+        j2.stats();
+    }
+
+    
 
     
 }

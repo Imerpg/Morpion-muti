@@ -15,6 +15,8 @@ public:
     // Fonction
     void initPlateau();
 
+    void verifPlateau(joueur j);
+
     void setOnPlateau(joueur j);
 
     void showPlateau();

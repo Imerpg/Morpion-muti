@@ -17,26 +17,82 @@ void plateau::initPlateau()
     }
 }
 
+void plateau::verifPlateau(joueur j)
+{
+    if (m_plateau[0] == j.m_pion)
+    {
+        if (m_plateau[1] == j.m_pion)
+        {
+            if (m_plateau[2] == j.m_pion)
+            {
+                j.win = true;
+            }  
+        }
+        if (m_plateau[4] == j.m_pion)
+        {
+            if (m_plateau[8] == j.m_pion)
+            {
+                j.win = true;
+            } 
+        } 
+        if (m_plateau[3] == j.m_pion)
+        {
+            if (m_plateau[6] == j.m_pion)
+            {
+                j.win = true;
+            }
+        }    
+    }
+    if (m_plateau[2] == j.m_pion)
+    {
+        if (m_plateau[4] == j.m_pion)
+        {
+            if (m_plateau[6] == j.m_pion)
+            {
+                j.win = true;
+            }
+        }
+        if (m_plateau[5] == j.m_pion)
+        {
+            if (m_plateau[8] == j.m_pion)
+            {
+                j.win = true;
+            }
+        }
+    }
+    if (m_plateau[3] == j.m_pion)
+    {
+        if (m_plateau[4] == j.m_pion)
+        {
+            if (m_plateau[5] == j.m_pion)
+            {
+                j.win = true;
+            }      
+        }
+    }
+    
+}
+
 void plateau::setOnPlateau(joueur j)
 {
     int nb;
-    bool good = false;
 
-    while(good != true)
+    // Question
+    cout << "A " << j.m_nom << " de jouer !" << endl;
+
+    showPlateau();
+
+    cout << "Quelle case ? (0-8) : ";
+    cin >> nb;
+
+    // Verifie la position
+    if(m_plateau[nb] == '-')
     {
-        cout << "Quelle case ? (0-8)";
-        cin >> nb;
-
-        if (m_plateau[nb] == '-')
-        {            
-            m_plateau[nb] = j.m_pion;
-        } else {
-            good = true;
-        }
-
-        cout << good << endl;
+        m_plateau[nb] = j.m_pion;
+    } else if(m_plateau[nb] != '-'){
+        setOnPlateau(j);
     }
-    
+    verifPlateau(j);
 }
 
 void plateau::showPlateau()
@@ -54,6 +110,7 @@ void plateau::showPlateau()
         }
         cout << " " << m_plateau[i] << " ";
     }
+    cout << endl;
     
 }
 
