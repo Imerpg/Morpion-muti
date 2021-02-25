@@ -44,9 +44,35 @@ void game::unVun()
     j2.setNom();
     j2.setPion();
 
-    cout << "Quel joueur commence ? ";
-    cin >> nb;
+    randomPlayer(j1, j2);
+
+    TabP.setOnPlateau(j1);
+
+    j1.stats();
+
+    j2.stats();
+
     
+}
+
+void game::randomPlayer(joueur j1, joueur j2)
+{
+    // Choose a random player to start
+    int j = rand() % 1;
+
+    cout << j << endl;
+
+    if(j == 0)
+    {
+        j1.first = true;
+        j2.first = false;
+    } else {
+        j2.first = true;
+        j1.first = false;
+    }
+
+    cout << j1.first << endl;
+    cout << j2.first << endl;
 }
 
 game::~game()

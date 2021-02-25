@@ -14,7 +14,7 @@ public:
     bot bot;
 
     // Plateau de jeu
-    plateau plateau;
+    plateau TabP;
 
 public:
     game(int whatGame);
@@ -23,6 +23,9 @@ public:
     void whatGame(int wgame);
 
     void unVun();
+
+
+    void randomPlayer(joueur j1, joueur j2);
 
     ~game();
 };

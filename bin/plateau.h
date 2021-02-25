@@ -1,9 +1,11 @@
 #ifndef PLATEAU_H
 #define PLATEAU_H
 
+#include "joueur.h"
+
 class plateau
 {
-private:
+public:
     // Plateau de jeu
     char m_plateau[9];
 
@@ -13,7 +15,7 @@ public:
     // Fonction
     void initPlateau();
 
-    void setOnPlateau();
+    void setOnPlateau(joueur j);
 
     void showPlateau();
 

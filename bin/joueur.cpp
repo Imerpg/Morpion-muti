@@ -25,21 +25,13 @@ void joueur::setPion()
     cin >> m_pion;
 }
 
-// Definie s'il commence ou l'inverse
-void joueur::setFirst()
-{
-    first = true;
-}
-void joueur::setLast()
-{
-    first = false;
-}
-
+// Stat du joueur (DEV)
 void joueur::stats()
 {
     cout << "Nom : " << m_nom << endl;
     cout << "Pion joué : " << m_pion << endl;
     cout << "Premier a jouer ? " << first << endl;
+    cout << "Win : " << win << endl;
 }
 
 joueur::~joueur()

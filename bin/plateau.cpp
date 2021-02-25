@@ -17,9 +17,26 @@ void plateau::initPlateau()
     }
 }
 
-void plateau::setOnPlateau()
+void plateau::setOnPlateau(joueur j)
 {
+    int nb;
+    bool good = false;
 
+    while(good != true)
+    {
+        cout << "Quelle case ? (0-8)";
+        cin >> nb;
+
+        if (m_plateau[nb] == '-')
+        {            
+            m_plateau[nb] = j.m_pion;
+        } else {
+            good = true;
+        }
+
+        cout << good << endl;
+    }
+    
 }
 
 void plateau::showPlateau()

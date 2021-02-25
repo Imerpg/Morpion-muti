@@ -5,7 +5,7 @@
 
 class joueur
 {
-private:
+public:
 
     // Nom
     std::string m_nom;
@@ -13,11 +13,11 @@ private:
     // Pion
     char m_pion;
 
-    // J1 ou J2
-    bool first;
-
     // A gagné
     bool win;
+
+    // J1 ou J2
+    bool first;
 
 public:
     joueur(/* args */);
