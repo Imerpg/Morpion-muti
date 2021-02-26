@@ -7,7 +7,7 @@
 
 class game
 {
-public:
+private:
     // Joueur et Bot
     joueur j1;
     joueur j2;
@@ -22,10 +22,13 @@ public:
     // Fonction
     void whatGame(int wgame);
 
-    void unVun();
+    void JVJ();
 
 
     void randomPlayer(joueur j1, joueur j2);
+
+    // DEV
+    void getShowTable();
 
     ~game();
 };

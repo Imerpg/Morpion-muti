@@ -17,68 +17,72 @@ void plateau::initPlateau()
     }
 }
 
+// Verification du plateau
 void plateau::verifPlateau(joueur j)
 {
-    if (m_plateau[0] == j.m_pion)
+    if (m_plateau[0] == j.getPion())
     {
-        if (m_plateau[1] == j.m_pion)
+        if (m_plateau[1] == j.getPion())
         {
-            if (m_plateau[2] == j.m_pion)
+            if (m_plateau[2] == j.getPion())
             {
-                j.win = true;
+                j.setWin(true);
             }  
         }
-        if (m_plateau[4] == j.m_pion)
+        if (m_plateau[4] == j.getPion())
         {
-            if (m_plateau[8] == j.m_pion)
+            if (m_plateau[8] == j.getPion())
             {
-                j.win = true;
+                j.setWin(true);
             } 
         } 
-        if (m_plateau[3] == j.m_pion)
+        if (m_plateau[3] == j.getPion())
         {
-            if (m_plateau[6] == j.m_pion)
+            if (m_plateau[6] == j.getPion())
             {
-                j.win = true;
+                j.setWin(true);
             }
         }    
     }
-    if (m_plateau[2] == j.m_pion)
+    if (m_plateau[2] == j.getPion())
     {
-        if (m_plateau[4] == j.m_pion)
+        if (m_plateau[4] == j.getPion())
         {
-            if (m_plateau[6] == j.m_pion)
+            if (m_plateau[6] == j.getPion())
             {
-                j.win = true;
+                j.setWin(true);
             }
         }
-        if (m_plateau[5] == j.m_pion)
+        if (m_plateau[5] == j.getPion())
         {
-            if (m_plateau[8] == j.m_pion)
+            if (m_plateau[8] == j.getPion())
             {
-                j.win = true;
+                j.setWin(true);
             }
         }
     }
-    if (m_plateau[3] == j.m_pion)
+    if (m_plateau[3] == j.getPion())
     {
-        if (m_plateau[4] == j.m_pion)
+        if (m_plateau[4] == j.getPion())
         {
-            if (m_plateau[5] == j.m_pion)
+            if (m_plateau[5] == j.getPion())
             {
-                j.win = true;
+                j.setWin(true);
             }      
         }
     }
+
+    cout << j.getWin() << endl;
     
 }
 
+// Met le pion du joueur
 void plateau::setOnPlateau(joueur j)
 {
     int nb;
 
     // Question
-    cout << "A " << j.m_nom << " de jouer !" << endl;
+    cout << "A " << j.getNom() << " de jouer !" << endl;
 
     showPlateau();
 
@@ -88,28 +92,29 @@ void plateau::setOnPlateau(joueur j)
     // Verifie la position
     if(m_plateau[nb] == '-')
     {
-        m_plateau[nb] = j.m_pion;
+        m_plateau[nb] = j.getPion();
+        verifPlateau(j);
     } else if(m_plateau[nb] != '-'){
         setOnPlateau(j);
     }
-    verifPlateau(j);
 }
 
+// Montre le plateau
 void plateau::showPlateau()
 {
-    int nb = 0;
+    //int nb = 0;
     // Affiche le tableau
-    cout << "  0  1  2";
     for (int i = 0; i < 9; i++)
     {
         if(i == 3 || i == 6 || i == 0)
         {
             cout << endl;
-            cout << nb;
-            nb++;
+            //cout << nb;
+            //nb++;
         }
         cout << " " << m_plateau[i] << " ";
     }
+
     cout << endl;
     
 }

@@ -8,13 +8,14 @@ game::game(int wgame)
     whatGame(wgame);
 }
 
+// Demande le Game
 void game::whatGame(int wgame)
 {
     switch (wgame)
     {
     case 1:
         // Game classic (1 v 1 sur un ordi)
-        unVun();
+        JVJ();
         break;
 
     case 2:
@@ -34,7 +35,8 @@ void game::whatGame(int wgame)
     }
 }
 
-void game::unVun()
+// Game 1v1
+void game::JVJ()
 {
 
     int nb;
@@ -46,19 +48,12 @@ void game::unVun()
 
     randomPlayer(j1, j2);
 
-    while(j1.win == false && j2.win == false)
+    while(j1.getWin() == false && j2.getWin() == false)
     {
+        j1.stats();
         TabP.setOnPlateau(j1);
         TabP.setOnPlateau(j2);
-
-        j1.stats();
-
-        j2.stats();
-    }
-
-    
-
-    
+    }  
 }
 
 void game::randomPlayer(joueur j1, joueur j2)
@@ -66,19 +61,19 @@ void game::randomPlayer(joueur j1, joueur j2)
     // Choose a random player to start
     int j = rand() % 1;
 
-    cout << j << endl;
-
     if(j == 0)
     {
-        j1.first = true;
-        j2.first = false;
-    } else {
-        j2.first = true;
-        j1.first = false;
+        j1.setFirst(true);
+        j2.setFirst(false);
+    } else if(j == 1) {
+        j2.setFirst(true);
+        j1.setFirst(false);
     }
+}
 
-    cout << j1.first << endl;
-    cout << j2.first << endl;
+void game::getShowTable()
+{
+    TabP.showPlateau();
 }
 
 game::~game()

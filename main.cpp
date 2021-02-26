@@ -17,6 +17,7 @@ int main(int argc, char const *argv[])
 
     game test(nb);
 
-    test.TabP.showPlateau();
+    test.getShowTable();
+
     return 0;
 }

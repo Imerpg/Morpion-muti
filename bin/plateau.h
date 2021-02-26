@@ -5,7 +5,7 @@
 
 class plateau
 {
-public:
+private:
     // Plateau de jeu
     char m_plateau[9];
 

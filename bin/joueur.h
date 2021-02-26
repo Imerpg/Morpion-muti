@@ -5,7 +5,7 @@
 
 class joueur
 {
-public:
+private:
 
     // Nom
     std::string m_nom;
@@ -14,10 +14,13 @@ public:
     char m_pion;
 
     // A gagné
-    bool win = false;
+    bool win;
 
     // J1 ou J2
     bool first;
+
+    // Nombre de joueur crée
+    static int nbJoueur;
 
 public:
     joueur(/* args */);
@@ -27,10 +30,20 @@ public:
 
     void setPion();
 
-    void setFirst();
-    void setLast();
+    void setWin(bool w);
+
+    void setFirst(bool f);
 
     void stats();
+
+    // GET
+    std::string getNom();
+
+    char getPion();
+
+    bool getWin();
+
+    bool getFirst();
 
     ~joueur();
 };
