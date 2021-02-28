@@ -17,7 +17,7 @@ int main(int argc, char const *argv[])
 
     game test(nb);
 
-    test.getShowTable();
+    
 
     return 0;
 }

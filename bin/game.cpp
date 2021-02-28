@@ -40,20 +40,26 @@ void game::JVJ()
 {
 
     int nb;
+    joueur tabJ[2] = {j1, j2};
 
-    j1.setNom();
-    j1.setPion();
-    j2.setNom();
-    j2.setPion();
-
-    randomPlayer(j1, j2);
-
-    while(j1.getWin() == false && j2.getWin() == false)
+    for (int i = 0; i < 2; i++)
     {
-        j1.stats();
-        TabP.setOnPlateau(j1);
-        TabP.setOnPlateau(j2);
-    }  
+        tabJ[i].setNom();
+        tabJ[i].setPion();
+    }
+
+    // A VOIR 
+    randomPlayer(j1, j2);
+    // ------
+
+    while(tabJ[0].getWin() == false || tabJ[1].getWin() == false)
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            TabP.setOnPlateau(tabJ[i]);
+            cout << tabJ[i].getWin() << endl;
+        }
+    }
 }
 
 void game::randomPlayer(joueur j1, joueur j2)

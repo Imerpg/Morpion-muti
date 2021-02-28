@@ -3,6 +3,7 @@
 
 #include <iostream>
 
+// CLASSE "JOUEUR"
 class joueur
 {
 private:
@@ -14,35 +15,46 @@ private:
     char m_pion;
 
     // A gagné
-    bool win;
+    bool win = false;
 
     // J1 ou J2
-    bool first;
+    bool first = false;
 
     // Nombre de joueur crée
-    static int nbJoueur;
+    //static int nbJoueur;
 
 public:
-    joueur(/* args */);
+    joueur();
 
     // Fonction
+
+    // Définie le Nom
     void setNom();
 
+    // Définie le poin
     void setPion();
 
+    // Définie s'il a gagner
     void setWin(bool w);
 
+    // Définie s'il est premier a jouer
     void setFirst(bool f);
 
+    // Montre les Statistique du joueur
     void stats();
 
     // GET
-    std::string getNom();
 
+    // Renvoie Nom
+    std::string getNom();
+    
+    // Renvoie le Pion
     char getPion();
 
+    // Renvoie si il a gagner
     bool getWin();
 
+    // Renvoie s'il est premier a jouer
     bool getFirst();
 
     ~joueur();

@@ -3,14 +3,15 @@
 
 using namespace std;
 
+// Constructeur
 plateau::plateau()
 {
     initPlateau();
 }
 
+// Initialisation du tableau de jeu
 void plateau::initPlateau()
 {
-    // Initialisation du tableau de jeu
     for (int i = 0; i < 9; i++)
     {
         m_plateau[i] = '-';  
@@ -20,27 +21,28 @@ void plateau::initPlateau()
 // Verification du plateau
 void plateau::verifPlateau(joueur j)
 {
+    bool w = true;
     if (m_plateau[0] == j.getPion())
     {
         if (m_plateau[1] == j.getPion())
         {
             if (m_plateau[2] == j.getPion())
             {
-                j.setWin(true);
+                j.setWin(w);
             }  
         }
         if (m_plateau[4] == j.getPion())
         {
             if (m_plateau[8] == j.getPion())
             {
-                j.setWin(true);
+                j.setWin(w);
             } 
         } 
         if (m_plateau[3] == j.getPion())
         {
             if (m_plateau[6] == j.getPion())
             {
-                j.setWin(true);
+                j.setWin(w);
             }
         }    
     }
@@ -50,14 +52,14 @@ void plateau::verifPlateau(joueur j)
         {
             if (m_plateau[6] == j.getPion())
             {
-                j.setWin(true);
+                j.setWin(w);
             }
         }
         if (m_plateau[5] == j.getPion())
         {
             if (m_plateau[8] == j.getPion())
             {
-                j.setWin(true);
+                j.setWin(w);
             }
         }
     }
@@ -67,7 +69,7 @@ void plateau::verifPlateau(joueur j)
         {
             if (m_plateau[5] == j.getPion())
             {
-                j.setWin(true);
+                j.setWin(w);
             }      
         }
     }
@@ -84,12 +86,13 @@ void plateau::setOnPlateau(joueur j)
     // Question
     cout << "A " << j.getNom() << " de jouer !" << endl;
 
+    // Montre le plateau de jeu
     showPlateau();
 
     cout << "Quelle case ? (0-8) : ";
     cin >> nb;
 
-    // Verifie la position
+    // Verifie la position sinon il relance la fonction
     if(m_plateau[nb] == '-')
     {
         m_plateau[nb] = j.getPion();

@@ -13,15 +13,18 @@ public:
     plateau(/* args */);
 
     // Fonction
+
+    // Initialize le plateau de jeu
     void initPlateau();
 
+    // Verifie si le joueur selectionné a gagné
     void verifPlateau(joueur j);
 
+    // Demande ou mettre le pion
     void setOnPlateau(joueur j);
 
+    // Montre le plateau de jeu
     void showPlateau();
-
-    void verifPlateau();
 
     ~plateau();
 };
